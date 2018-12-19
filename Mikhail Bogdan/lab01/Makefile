@@ -1,13 +1,13 @@
 build: algorithm.o io.o util.o main.o
-	gcc algorithm.o io.o util.o main.o -o program
-algorithm.o: algorithm.c
-	gcc -c algorithm.c
-io.o: io.c
-	gcc -c io.c
-util.o: util.c
-	gcc -c util.c
-main.o: main.c
-	gcc -c main.c
+	gcc ./bin/algorithm.o ./bin/io.o ./bin/util.o ./bin/main.o -o lab01
+algorithm.o: ./src/algorithm.c
+	gcc -c ./src/algorithm.c -o ./bin/algorithm.o
+io.o: ./src/io.c
+	gcc -c ./src/io.c -o ./bin/io.o
+util.o: ./src/util.c
+	gcc -c ./src/util.c -o ./bin/util.o
+main.o: ./src/main.c
+	gcc -c ./src/main.c -o ./bin/main.o
 clean:
-	rm -rf *.o program
+	rm -rf *.o lab01
 rebuild: clean build
