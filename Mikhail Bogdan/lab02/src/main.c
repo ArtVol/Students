@@ -1,25 +1,47 @@
-struct position_node {
+#include "../include/clist.h"
+
+struct position_node
+{
   int x, y;
-  struct intrusive_node /* ? */ node;
+  struct intrusive_node * node;
 };
 
-/* ? */ remove_position(intrusive_list /* ? */, int x, int y) { // removes all (x, y) pairs
+void remove_position(intrusive_list * list, int x, int y)
+{ // removes all (x, y) pairs
 
 }
 
-/* ? */ add_position(intrusive_list /* ? */, int x, int y) {
+void add_position(intrusive_list * list, int x, int y)
+{
 
 }
 
-/* ? */ show_all_positions(/* ? */) {
+void show_all_positions(intrusive_list * list)
+{
 
 }
 
-/* ? */ remove_all_positions(/* ? */) {
+void remove_all_positions(instrusive_list * list)
+{
 
 }
 
-int main() {
+char ** split(char * line, int len, char symbol)
+{
+	int length = 0;
+	int size = 0;
+	for(int i = 0; i < len; i++)
+		if(line[i] == symbol) size++;
+	char ** lines = malloc(sizeof(char *) * size);
+	for(int i = 0; i < len; i++)
+	{
+		if(
+	}
+}
+
+int main()
+{
+
   /* usage
 
      intrusive_list_t l;
