@@ -5,5 +5,5 @@ util.o: ./src/clist.c
 main.o: ./src/main.c
 	gcc -c ./src/main.c -o ./bin/main.o
 clean:
-	rm -rf *.o lab02
+	rm -rf *.o pose_db
 rebuild: clean build
