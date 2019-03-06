@@ -7,15 +7,14 @@
 
 struct position_node
 {
-  int x, y;
-  struct intrusive_node node;
+ 	int x, y;
+ 	struct intrusive_node node;
 };
 
 #define container_of(ptr) (struct position_node *)((char *)(ptr) - 2 * sizeof(int)) 
 
 void remove_position(struct intrusive_list * list, int x, int y)
 {
-	int x1, y1;
 	struct position_node * pnode;
 	struct intrusive_node * node;
 	struct intrusive_node test_node;
@@ -43,7 +42,6 @@ void add_position(struct intrusive_list * list, int x, int y)
 
 void show_all_positions(struct intrusive_list * list)
 {
-	int x, y;
 	struct position_node * pnode;
 	struct intrusive_node * node;
 	for(node = list->head; node != 0; node = node->next)
@@ -57,7 +55,8 @@ void show_all_positions(struct intrusive_list * list)
 void remove_all_positions(struct intrusive_list * list)
 {
 	struct position_node * node;
-	while(list->head){
+	while(list->head)
+	{
 		node = container_of(list->head);
 		remove_node(list, list->head);
 		free(node);
@@ -108,7 +107,7 @@ int main()
 				break;
 			}
 		}
-		//printf("%s %d", command, com);
+		
 		switch(com)
 		{
 		default:
@@ -140,16 +139,5 @@ int main()
 		}
 	}
 	free(list);
-  /* usage
-
-     intrusive_list_t l;
-     init_list(&l);
-
-     add_position(&l, 10, 10);
-     add_position(&l, 20, 20);
-
-     show_all_positions(&l);
-
-     return 0;
-  */
+	return 0;
 }
