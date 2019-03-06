@@ -1,9 +1,11 @@
-build: clist.o io.o main.o
-	gcc ./bin/clist.o ./bin/main.o -o lab01
-util.o: ./src/clist.c
+build: ./bin/clist.o ./bin/main.o
+	gcc ./bin/clist.o ./bin/main.o -o pose_db
+./bin/clist.o: ./src/clist.c
 	gcc -c ./src/clist.c -o ./bin/clist.o
-main.o: ./src/main.c
+./bin/main.o: ./src/main.c
 	gcc -c ./src/main.c -o ./bin/main.o
 clean:
-	rm -rf *.o pose_db
+	rm -rf ./bin/*.o pose_db
 rebuild: clean build
+debug:
+	gcc -g ./src/main.c ./src/clist.c -o debug_app
