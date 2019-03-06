@@ -10,6 +10,7 @@ struct position_node
   int x, y;
   struct intrusive_node node;
 };
+
 #define container_of(ptr) (struct position_node *)((char *)(ptr) - 2 * sizeof(int)) 
 
 void remove_position(struct intrusive_list * list, int x, int y)
